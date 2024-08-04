@@ -10,17 +10,18 @@ cService = webdriver.ChromeService(executable_path=r"C:\Users\dhava\Downloads\ch
 driver = webdriver.Chrome(service=cService)
 
 file_upload = "FileUpload-module__hidden___leG7z"
-
+driver.get("https://www.alltrails.com/converter")
 for file_name in os.listdir(running_data_path):
     time.sleep(5)
-    driver.get("https://www.alltrails.com/converter")
+    #driver.get("https://www.alltrails.com/converter")
     print(running_data_path + "/" + file_name)
     time.sleep(5)
     driver.find_element(By.CLASS_NAME, file_upload).send_keys(running_data_path + "\\" + file_name)
     #print(driver.find_element(By.CLASS_NAME, filetype_select))
     time.sleep(5)
-    select = Select(driver.find_element(By.XPATH("/html/body/div[2]/div[4]/div[1]/div[1]/div/form/div/div[2]/div/label/div[2]/select")).get_attribute("innerHTML"))
+    select = Select(driver.find_element(By.XPATH, "/html/body/div[2]/div[4]/div[1]/div[1]/div/form/div/div[2]/div/label/div[2]/select"))
     select.select_by_visible_text("Google Earth KML")
     time.sleep(5)
-    driver.find_element(By.XPATH("/html/body/div[2]/div[4]/div[1]/div[1]/div/form/div/div[4]/button")).get_attribute("innerHTML").click()
-    time.sleep(10)
+    driver.find_element(By.XPATH, "/html/body/div[2]/div[4]/div[1]/div[1]/div/form/div/div[4]/button").click()
+    time.sleep(12)
+    driver.find_element(By.XPATH, "/html/body/div[2]/div[4]/div/div/div/div[2]/div/div[3]/a").click()

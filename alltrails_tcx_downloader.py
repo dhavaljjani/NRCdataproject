@@ -1,5 +1,6 @@
 import os
 import time
+import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -23,5 +24,6 @@ for file_name in os.listdir(running_data_path):
     select.select_by_visible_text("Google Earth KML")
     time.sleep(5)
     driver.find_element(By.XPATH, "/html/body/div[2]/div[4]/div[1]/div[1]/div/form/div/div[4]/button").click()
-    time.sleep(12)
+    seconds = random.randrange(0, 9)
+    time.sleep(seconds)
     driver.find_element(By.XPATH, "/html/body/div[2]/div[4]/div/div/div/div[2]/div/div[3]/a").click()
